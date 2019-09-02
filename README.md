@@ -1,2 +1,10 @@
 # Programmers.Level1_Java_GymSuit
-Programmers Greedy Level1_GymSuit
+
+## 1. 문제 설명
+input으로 총 학생수 n, 체육복을 잃어버린 학생번호 int[] lost, 여분의 체육복을 가지고있는 학생번호 int[] reserve가 온다. 키순으로 번호가 지정되어있어 여벌이 있는 학생은 자신과 인접한 번호의 학생들에게만 체육복을 빌려줄 수 있다. 또한 자신의 체육복을 잃어버린 학생이 여벌의 옷을 가지고 있다면 그 학생은 자신이 그 여벌의 옷을 입는다. 그때 체육수업을 들을 수 있는 총 학생수 return
+
+## 2. 풀이
+받은 학생과 빌려준 학생을 알기위해 boolean[]을 두개 만들었다. 먼저 lost와 reserve 번호가 같은 경우에 대해 조사한 후, lost 갯수만큼 loop를 돌며 검사하였다. got[i] == true이면 다음 lost를 검사하게 하며 여벌의 옷이 있는 사람이 자신보다 앞선 번호를 가진사람과 늦는 번호를 가진사람이 있다면 앞선번호를 가진 사람에게 여벌의 옷을 빌려주는것을 더 높은 우선순위로 갖게 if문을 구성하였다. 이렇게 두 세트의 for문을 마치고 전체 학생수 n에서 잃어버린 학생수 lost.length를 뺀후```ansewer = n - lost.length``` boolean[] got에서 true의 갯수만큼 최종결과에서 더해주었다
+``` for (boolean b : got) if (b) answer++;```.
+
+lost길이만큼 한번만 돌면서 lost[i] == reserve[j]인 경우를 높은 우선순위로 먼저 처리하는 풀이가 있었는데 그 방법이 더 빠르고 간단하다.
